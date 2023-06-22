@@ -32,6 +32,19 @@ const ProductDetails = ({ product, products }) => {
         });
     };
 
+    const notifyWishlist = () => {
+        toast.success('Success. Check your wishlist!', {
+            position: 'bottom-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'dark',
+        });
+    };
+
     return (
         <div className='w-full md:py-20'>
             <ToastContainer />
@@ -182,7 +195,7 @@ const ProductDetails = ({ product, products }) => {
                                             oneQuantityPrice: p.price,
                                         })
                                     );
-                                    notify();
+                                    notifyWishlist();
                                 }
                             }}
                         >
