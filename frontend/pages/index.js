@@ -11,14 +11,19 @@ export default function Home({ products }) {
 
             {/* Heading and Paragraph start */}
             <Wrapper>
-                <div className='text-center max-w-[800px] mx-auto my-[50px] md:my-[80px]'>
-                    <div className='text-[28px] md:text-[34px] mb-5 font-semibold leading-tight'>
-                        Cushioning for Your Miles
-                    </div>
-                    <div className='text-md md:text-xl'>
-                        A lightweight Nike ZoomX midsole is combined with
-                        increased stack heights to help provide cushioning
-                        during extended stretches of running.
+                <div className=' max-w-[800px] mx-auto my-[50px] md:my-[80px]'>
+                    <h2 className='text-black font-bold text-left md:text-center lg:text-2xl '>
+                        Summer Kicks
+                    </h2>
+                    <h1 className='font-Futura  text-left uppercase text-3xl  md:text-5xl mb-5 font-extrabold leading-tight md:text-center '>
+                        step into summer style
+                    </h1>
+                    <div className='font-Futura text-left md:text-xl md:text-center '>
+                        For Days when you need fresh kicks that can keep up with
+                        your every move.
+                        <span className='font-semibold block'>
+                            #ChaseTheday
+                        </span>
                     </div>
                 </div>
                 {/* Heading and Paragraph end */}

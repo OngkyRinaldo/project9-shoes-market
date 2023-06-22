@@ -18,7 +18,7 @@ export const whishlistSlice = createSlice({
             }
         },
         updateWishlist: (state, action) => {
-            state.cartItems = state.cartItems.map((p) => {
+            state.wishlistItems = state.wishlistItems.map((p) => {
                 if (p.id === action.payload.id) {
                     if (action.payload.key === 'quantity') {
                         p.attributes.price =
@@ -30,7 +30,7 @@ export const whishlistSlice = createSlice({
             });
         },
         removeFromWishlist: (state, action) => {
-            state.cartItems = state.cartItems.filter(
+            state.wishlistItems = state.wishlistItems.filter(
                 (p) => p.id !== action.payload.id
             );
         },

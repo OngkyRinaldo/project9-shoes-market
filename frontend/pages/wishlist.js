@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import Image from 'next/image';
 import { makePaymentRequest } from '@/utils/api';
 import { loadStripe } from '@stripe/stripe-js';
+import WishlistItem from '@/components/WishlistItem';
 
 const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -13,7 +14,7 @@ const stripePromise = loadStripe(
 
 const wishlist = () => {
     const [loading, setLoading] = useState(false);
-    const { wishlistItems } = useSelector((state) => state.cart);
+    const { wishlistItems } = useSelector((state) => state.wishlist);
 
     const subTotal = useMemo(() => {
         return wishlistItems.reduce(
@@ -41,7 +42,7 @@ const wishlist = () => {
     return (
         <div className='w-full md:py-20'>
             <Wrapper>
-                {cartItems.length > 0 && (
+                {wishlistItems.length > 0 && (
                     <>
                         {/* HEADING AND PARAGRAPH START */}
                         <div className='text-center max-w-[800px] mx-auto mt-8 md:mt-0'>
@@ -58,8 +59,8 @@ const wishlist = () => {
                                 <div className='text-lg font-bold'>
                                     Wishlist Items
                                 </div>
-                                {cartItems.map((item) => (
-                                    <CartItem key={item.id} data={item} />
+                                {wishlistItems.map((item) => (
+                                    <WishlistItem key={item.id} data={item} />
                                 ))}
                             </div>
                             {/* WISHLIST ITEMS END */}
@@ -103,7 +104,7 @@ const wishlist = () => {
                 )}
 
                 {/* This is empty screen */}
-                {cartItems.length < 1 && (
+                {wishlistItems.length < 1 && (
                     <div className='flex-[2] flex flex-col items-center pb-[50px] md:-mt-14'>
                         <Image
                             src='/empty-cart.jpg'

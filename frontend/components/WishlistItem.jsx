@@ -1,6 +1,6 @@
 import React from 'react';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { updateCart, removeFromCart } from '@/store/cartSlice';
+import { updateWishlist, removeFromWishlist } from '@/store/wishlistSlice';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 
@@ -9,13 +9,13 @@ const WishlistItem = ({ data }) => {
 
     const dispatch = useDispatch();
 
-    const updateCartItem = (e, key) => {
+    const updateWishlist = (e, key) => {
         let payload = {
             key,
             val: key === 'quantity' ? parseInt(e.target.value) : e.target.value,
             id: data.id,
         };
-        dispatch(updateCart(payload));
+        dispatch(updateWishlist(payload));
     };
 
     return (
@@ -61,7 +61,7 @@ const WishlistItem = ({ data }) => {
                             <select
                                 className='hover:text-black'
                                 onChange={(e) =>
-                                    updateCartItem(e, 'selectedSize')
+                                    updateWishlist(e, 'selectedSize')
                                 }
                             >
                                 {p.size.data.map((item, i) => {
@@ -87,7 +87,7 @@ const WishlistItem = ({ data }) => {
                             <div className='font-semibold'>Quantity:</div>
                             <select
                                 className='hover:text-black'
-                                onChange={(e) => updateCartItem(e, 'quantity')}
+                                onChange={(e) => updateWishlist(e, 'quantity')}
                             >
                                 {Array.from(
                                     { length: 10 },
@@ -108,7 +108,7 @@ const WishlistItem = ({ data }) => {
                     </div>
                     <RiDeleteBin6Line
                         onClick={() =>
-                            dispatch(removeFromCart({ id: data.id }))
+                            dispatch(removeFromWishlist({ id: data.id }))
                         }
                         className='cursor-pointer text-black/[0.5] hover:text-black text-[16px] md:text-[20px]'
                     />
