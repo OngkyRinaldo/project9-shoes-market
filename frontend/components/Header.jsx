@@ -10,6 +10,7 @@ import { BiMenuAltRight } from 'react-icons/bi';
 import { VscChromeClose } from 'react-icons/vsc';
 import { fetchDataFromApi } from '@/utils/api';
 import { useSelector } from 'react-redux';
+import Search from './Search';
 
 const Header = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -77,6 +78,12 @@ const Header = () => {
                 )}
 
                 <div className='flex items-center gap-2 text-black'>
+                    {/* icon start */}
+
+                    <div>
+                        <Search />
+                    </div>
+                    {/* icon end */}
                     {/* icon start */}
                     <Link href='/wishlist'>
                         <div
