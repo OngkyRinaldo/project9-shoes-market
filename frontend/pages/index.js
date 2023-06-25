@@ -1,7 +1,6 @@
 import HeroBanner from '@/components/HeroBanner';
 import Wrapper from '@/components/Wrapper';
 import ProductCard from '@/components/ProductCard';
-import { useEffect, useState } from 'react';
 import { fetchDataFromApi } from '@/utils/api';
 
 export default function Home({ products }) {
