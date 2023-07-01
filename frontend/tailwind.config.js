@@ -1,20 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        './app/**/*.{js,ts,jsx,tsx}',
-        './pages/**/*.{js,ts,jsx,tsx}',
-        './components/**/*.{js,ts,jsx,tsx}',
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
 
-        // Or if using `src` directory:
-        './src/**/*.{js,ts,jsx,tsx}',
-    ],
-    theme: {
-        fontFamily: {
-            oswald: 'Oswald, sans-serif',
-            urbanist: 'Urbanist, sans-serif',
-            Futura: 'Futura Next Condensed',
-        },
-        extend: {},
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    fontFamily: {
+      oswald: "Oswald, sans-serif",
+      urbanist: "Urbanist, sans-serif",
+      Futura: "Futura Next Condensed",
     },
-    plugins: [],
+    extend: {},
+  },
+  plugins: [require("@tailwindcss/forms")],
 };

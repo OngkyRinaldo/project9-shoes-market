@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_shoes",
+  "info": {
+    "singularName": "user-shoe",
+    "pluralName": "user-shoes",
+    "displayName": "user-shoe",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    }
+  }
+}
