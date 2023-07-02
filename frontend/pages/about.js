@@ -1,8 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const about = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 2000,
+            once: true,
+        });
+    }, []);
     return (
         <div className='bg-black h-fit font-urbanist text-white  '>
             <video
@@ -37,15 +45,18 @@ const about = () => {
                 </div>
             </div>
             <div className='container mx-auto'>
-                <h2 className='mt-10 px-5 text-2xl font-semibold '>
-                    We champion continual progress for athletes and sport by
-                    taking action to help athletes reach their potential. Every
-                    job at NIKE, Inc. is grounded in a team-first mindset,
-                    cultivating a culture of innovation and a shared purpose to
-                    leave an enduring impact.
-                </h2>
+                <div className='md:flex md:justify-between items-center'>
+                    <div></div>
+                    <h2 className='mt-10 px-5 text-2xl font-semibold md:text-4xl md:w-3/5'>
+                        We champion continual progress for athletes and sport by
+                        taking action to help athletes reach their potential.
+                        Every job at NIKE, Inc. is grounded in a team-first
+                        mindset, cultivating a culture of innovation and a
+                        shared purpose to leave an enduring impact.
+                    </h2>
+                </div>
 
-                <div className='px-5 mt-10 md:flex'>
+                <div className='px-5 mt-10 md:flex' data-aos='fade-up'>
                     <Link href='#' className='flex-1 hidden md:block items-end'>
                         <p className='text-xl mt-5 '>
                             Stories, Volume3: All Movement, All Moments
@@ -70,7 +81,7 @@ const about = () => {
                         </span>
                     </Link>
                 </div>
-                <div className='px-5 mt-10 md:flex'>
+                <div className='px-5 mt-10 md:flex' data-aos='fade-up'>
                     <div className='w-full h-36 md:w-1/2 md:h-96 relative mx-auto '>
                         <Image
                             src='/about/basket.jpg'
@@ -101,7 +112,7 @@ const about = () => {
                         </span>
                     </Link>
                 </div>
-                <div className='px-5 mt-10 md:flex'>
+                <div className='px-5 mt-10 md:flex' data-aos='fade-up'>
                     <Link href='#' className='flex-1 hidden md:block items-end'>
                         <p className='text-xl mt-5 '>
                             Our Impact:Breaking Barriers Since 1972
@@ -128,7 +139,10 @@ const about = () => {
                     </Link>
                 </div>
             </div>
-            <div className='grid grid-rows-1 md:grid-cols-3 gap-3 mt-10 '>
+            <div
+                className='grid grid-rows-1 md:grid-cols-3 gap-3 mt-10 '
+                data-aos='fade-up'
+            >
                 <div className='px-5'>
                     <div className='w-full h-36  md:h-64 relative mx-auto '>
                         <Image
