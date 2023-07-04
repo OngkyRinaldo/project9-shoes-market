@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,6 +9,10 @@ import { Provider } from "react-redux";
 import store from "@/store/store";
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  const hideHeaderFooterPaths = ["/auth/register", "/auth/login"];
+  const showHeaderFooter = !hideHeaderFooterPaths.includes(router.pathname);
+
   return (
     <>
       <Head>
@@ -27,9 +32,9 @@ export default function App({ Component, pageProps }) {
         />
       </Head>
       <Provider store={store}>
-        <Header />
+        {showHeaderFooter && <Header />}
         <Component {...pageProps} />
-        <Footer />
+        {showHeaderFooter && <Footer />}
       </Provider>
     </>
   );

@@ -52,13 +52,13 @@ export default function Login() {
                 type="submit"
                 className="w-full py-3 mt-10 font-medium text-white uppercase bg-gray-800 rounded-lg focus:outline-none hover:bg-gray-700 hover:shadow-none"
               >
-                Register
+                Login
               </button>
               <button
                 type="submit"
                 className="w-full py-3 mt-3 font-medium text-gray-800 uppercase bg-white border-2 rounded-lg border-slate-500 focus:outline-none hover:bg-gray-200 hover:shadow-lg"
               >
-                Sign up with Github
+                Sign in with Github
               </button>
               {/* Another Auth Routes */}
               <div className="mt-8 text-sm text-center sm:flex sm:flex-wrap sm:mb-4">
