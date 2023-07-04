@@ -10,7 +10,7 @@ import store from "@/store/store";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const hideHeaderFooterPaths = ["/auth/register", "/auth/login"];
+  const hideHeaderFooterPaths = ["/auth/register", "/auth/login","/auth/forgot-password"];
   const showHeaderFooter = !hideHeaderFooterPaths.includes(router.pathname);
 
   return (

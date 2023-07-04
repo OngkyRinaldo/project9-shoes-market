@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { API_URL, STRAPI_API_TOKEN } from "@/utils/urls";
+import Link from "next/link"
 
 export default function Register() {
   const [field, setField] = useState({});
@@ -126,15 +127,15 @@ export default function Register() {
               </button>
               {/* Another Auth Routes */}
               <div className="mt-8 text-sm text-center sm:flex sm:flex-wrap sm:mb-4">
-                <a href="#" className="underline flex-2">
+                <Link href="/auth/forgot-password" className="underline flex-2">
                   Forgot password?
-                </a>
+                </Link>
                 <p className="flex-1 mx-4 my-1 text-gray-500 text-md sm:my-auto">
                   or
                 </p>
-                <a href="#" className="underline flex-2">
+                <Link href="/auth/login" className="underline flex-2">
                   Have an Account?
-                </a>
+                </Link>
               </div>
             </form>
           </div>
