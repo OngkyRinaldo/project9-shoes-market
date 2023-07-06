@@ -51,16 +51,15 @@ export default function Home({ products }) {
                         More Products
                     </Link>
                 </div>
-                {/* <div
+                <div
                     className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5 pb-5 px-5 md:px-0 '
                     data-aos='zoom-in'
                 >
                     {products?.data?.slice(0, 3).map((product) => (
                         <ProductCard key={product?.id} data={product} />
                     ))}
-                </div> */}
+                </div>
 
-                <RelatedProducts products={products} />
                 {/* Product Grid end */}
             </Wrapper>
         </main>
