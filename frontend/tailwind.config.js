@@ -13,6 +13,7 @@ module.exports = {
             oswald: 'Oswald, sans-serif',
             urbanist: 'Urbanist, sans-serif',
         },
+
         extend: {},
     },
     plugins: [require('@tailwindcss/forms')],

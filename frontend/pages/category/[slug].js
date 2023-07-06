@@ -25,7 +25,7 @@ const Category = ({ category, products, slug }) => {
     );
 
     return (
-        <div className='w-full md:py-20 relative'>
+        <div className='w-full md:py-20 relative bg-[#E5E5E5]'>
             <Wrapper>
                 <div className='text-center max-w-[800px] mx-auto mt-8 md:mt-0'>
                     <div className='text-[28px] md:text-[34px] mb-5 font-semibold leading-tight'>
@@ -45,7 +45,7 @@ const Category = ({ category, products, slug }) => {
                 {data?.meta?.pagination?.total > maxResult && (
                     <div className='flex gap-3 items-center justify-center my-16 md:my-0'>
                         <button
-                            className={`rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500`}
+                            className={`rounded py-2 px-4 bg-black text-white disabled:bg-[#A9FF20] disabled:text-black`}
                             disabled={pageIndex === 1}
                             onClick={() => setPageIndex(pageIndex - 1)}
                         >

@@ -6,7 +6,7 @@ const ProductCard = ({ data: { attributes: p, id } }) => {
     return (
         <Link
             href={`/product/${p.slug}`}
-            className='overflow-hidden duration-200 transform bg-white cursor-pointer hover:scale-105'
+            className='overflow-hidden duration-200 transform bg-white cursor-pointer hover:scale-105 border border-black'
         >
             <Image
                 width={500}
@@ -14,7 +14,7 @@ const ProductCard = ({ data: { attributes: p, id } }) => {
                 src={p.thumbnail.data.attributes.url}
                 alt={p.name}
             />
-            <div className='p-4 text-black/[0.9]'>
+            <div className='p-4 text-black/[0.9] bg-[#A9FF20]'>
                 <h2 className='text-lg font-medium'>{p.name}</h2>
                 <div className='flex items-center text-black/[0.5]'>
                     <p className='mr-2 text-lg font-semibold'>$ {p.price}</p>
@@ -24,7 +24,7 @@ const ProductCard = ({ data: { attributes: p, id } }) => {
                             <p className='text-base font-medium line-through'>
                                 ${p.original_price}
                             </p>
-                            <p className='ml-auto text-base font-medium text-green-500'>
+                            <p className='ml-auto text-base font-medium text-red-500'>
                                 {getDiscountedPricePercentage(
                                     p.original_price,
                                     p.price

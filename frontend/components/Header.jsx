@@ -55,7 +55,7 @@ const Header = () => {
         <header
             className={`w-full h-[50px] md:h-[80px]
     bg-white flex items-between z-20 sticky top-0
-    transition-transform duration-300 ${show}`}
+    transition-transform duration-300 ${show} bg-[#E5E5E5]`}
         >
             <Wrapper className='h-[50px] pt-3 flex justify-between items-center'>
                 <Link href='/' className=''>
