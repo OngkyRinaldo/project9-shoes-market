@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { addUserToTable } from "@/utils/api";
 import Link from "next/link"
 
 export default function Register() {
+   const [loading, setLoading] = useState(false);
+   const [overlay, setOverlay] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const [userData, setUserData] = useState({});
+   const formRef = useRef(null);
+   
 
   function setValue(e) {
     const target = e.target;
     const name = target.name;
     const value = target.value;
+
     console.log({ name, value });
 
     setUserData({
@@ -17,22 +24,44 @@ export default function Register() {
     });
   }
 
+  // mereset form register 
+   const resetForm = () => {
+    setUserData({});
+    formRef.current.reset();
+  };
+
+  
+
 // ambil endpoint strapi user-shoe
 
    const registerUser = async () => {
     try {
+      setLoading(true);
+       setOverlay(true);
       console.log(userData)
     
       const res = await addUserToTable("/api/user-shoes", {
         data: userData,
       });
-       console.log("User registered successfully:", res);
+       setLoading(false);
+        setOverlay(false);
+
+       // if (res.data.jwt) {
+        setSuccess(true);
+        resetForm();
+        console.log("User registered successfully:", res);
+      // } else {
+      //   console.log("gagal jwt")
+      // }
+       
     } catch (error) {
+       setLoading(false);
+        setOverlay(false);
       console.log(error);
+
+
     }
   }
-
-   
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -52,7 +81,21 @@ export default function Register() {
             <h2 className="text-3xl font-semibold text-center text-gray-800 lg:text-4xl">
               Register
             </h2>
-            <form className="mt-10" onSubmit={handleSubmit}>
+
+              {success && (
+                <div className="bg-green-500 text-white rounded-lg mt-3 px-3 py-2">
+                  🎉Congratulations! Your account has been registered.
+                </div>
+              )}
+            
+
+            <form className="mt-10" onSubmit={handleSubmit} ref={formRef}>
+              
+              {overlay && (
+                <div className="absolute inset-0 z-10 bg-white/50"></div>
+              
+              )}
+              
               {/* Nama Input */}
               <label
                 htmlFor="name"
@@ -106,10 +149,12 @@ export default function Register() {
               />
               {/* Auth Buttton */}
               <button
+              disabled={overlay}
                 type="submit"
-                className="w-full py-3 mt-10 font-medium text-white uppercase bg-gray-800 rounded-lg focus:outline-none hover:bg-gray-700 hover:shadow-none"
+                className="w-full gap-5 flex items-center justify-center py-3 mt-10 font-medium text-white uppercase bg-gray-800 rounded-lg focus:outline-none hover:bg-gray-700 hover:shadow-none"
               >
                 Register
+                 {loading && <img src="/spinner.svg" />}
               </button>
               <button
                 type="submit"
