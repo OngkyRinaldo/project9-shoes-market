@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { API_URL, STRAPI_API_TOKEN } from "@/utils/urls";
+import { addUserToTable } from "@/utils/api";
 import Link from "next/link"
 
 export default function Register() {
-  const [field, setField] = useState({});
+  const [userData, setUserData] = useState({});
 
   function setValue(e) {
     const target = e.target;
@@ -11,36 +11,28 @@ export default function Register() {
     const value = target.value;
     console.log({ name, value });
 
-    setField({
-      ...field,
+    setUserData({
+      ...userData,
       [name]: value,
     });
   }
-  async function registerUser() {
-    console.log(field);
-    // try {
-    //   const res = await fetch(`${API_URL}/api/user-shoes`, {
-    //     method: "POST",
-    //     headers: {
-    //       Authorization: "Bearer " + STRAPI_API_TOKEN,
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(field),
-    //   });
 
-    //   if (res.ok) {
-    //     const data = await res.json();
-    //     console.log("User registered successfully:", data);
-    //     // Lakukan tindakan lain setelah pendaftaran berhasil
-    //   } else {
-    //     console.log("Failed to register");
-    //     // Tangani kesalahan saat pendaftaran gagal
-    //   }
-    // } catch (error) {
-    //   console.error("An error occurred:", error);
-    //   // Tangani kesalahan jaringan atau lainnya
-    // }
+// ambil endpoint strapi user-shoe
+
+   const registerUser = async () => {
+    try {
+      console.log(userData)
+    
+      const res = await addUserToTable("/api/user-shoes", {
+        data: userData,
+      });
+       console.log("User registered successfully:", res);
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+   
 
   function handleSubmit(e) {
     e.preventDefault();
