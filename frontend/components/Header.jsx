@@ -54,10 +54,10 @@ const Header = () => {
     return (
         <header
             className={`w-full h-[50px] md:h-[80px]
-    bg-white flex items-between z-20 sticky top-0
+     flex items-between z-20 sticky top-0
     transition-transform duration-300 ${show} bg-[#E5E5E5]`}
         >
-            <Wrapper className='h-[50px] pt-3 flex justify-between items-center'>
+            <Wrapper className='h-[50px] pt-3 flex justify-between items-center '>
                 <Link href='/' className=''>
                     <img src='/logo.svg' className='w-[40px] md:w-[60px]' />
                 </Link>
