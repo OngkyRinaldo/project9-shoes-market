@@ -92,7 +92,7 @@ const Cart = () => {
 
                                     {/* BUTTON START */}
                                     <button
-                                        className='flex items-center justify-center w-full gap-2 py-4 mb-3 text-lg font-medium text-white transition-transform bg-black rounded-full active:scale-95 hover:opacity-75'
+                                        className='flex items-center justify-center w-full gap-2 py-4 mb-3 text-lg font-medium text-black transition-transform border border-black bg-[#A9FF20] rounded-full active:scale-95 hover:opacity-75'
                                         onClick={handlePayment}
                                     >
                                         Checkout
